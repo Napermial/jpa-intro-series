@@ -5,9 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.List;
 
 @Data
@@ -21,6 +19,15 @@ public class Season {
     @GeneratedValue
     private Long id;
     private Integer length;
+
+    @OneToMany(mappedBy = "season", cascade = CascadeType.PERSIST)
     private List<Episode> episodes;
+
+    @ManyToOne
+    @JoinColumn(nullable = false)
+    private Series series;
+
+    @Transient
+    private Integer numberOfEpisodes;
 
 }

@@ -8,6 +8,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import java.util.Arrays;
+
 @SpringBootApplication
 public class JpaIntroProjectApplication {
 
@@ -25,7 +27,8 @@ public class JpaIntroProjectApplication {
     @Bean
     public CommandLineRunner init(){
         return args -> {
-
+            Arrays.asList("Whither Canada?", "Sex and Violence", "How to Recognise Different Types of Trees From Quite a Long Way Away",
+                    "Owl Stretching Time", )
         };
     }
 

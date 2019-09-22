@@ -1,13 +1,12 @@
 package com.codecool.jpaintroproject.entities;
 
+import com.codecool.jpaintroproject.TvAiredOn;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
 
 @Data
@@ -22,4 +21,11 @@ public class Episode {
     private Long id;
     private String title;
     private LocalDate aired;
+
+    @Enumerated(EnumType.STRING)
+    private TvAiredOn tvAiredOn;
+
+    @ManyToOne
+    @JoinColumn(nullable = false)
+    private Season season;
 }
