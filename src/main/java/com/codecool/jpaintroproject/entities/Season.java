@@ -18,14 +18,13 @@ public class Season {
     @Id
     @GeneratedValue
     private Long id;
-    private Integer length;
 
     @OneToMany(mappedBy = "season", cascade = CascadeType.PERSIST)
     private List<Episode> episodes;
 
     @ManyToOne
     @JoinColumn(nullable = false)
-    private Series series;
+    private Season season;
 
     @Transient
     private Integer numberOfEpisodes;

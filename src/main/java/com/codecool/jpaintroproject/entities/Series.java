@@ -19,8 +19,8 @@ public class Series {
     private Long id;
     private String title;
 
-    @OneToMany(mappedBy = "series")
-    private List<Series> series;
+    @OneToMany(mappedBy = "season")
+    private List<Season> seasons;
 
     @Transient
     private Integer numberOfSeasons;
